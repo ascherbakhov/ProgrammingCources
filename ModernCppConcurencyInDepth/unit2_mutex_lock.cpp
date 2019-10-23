@@ -4,6 +4,8 @@
 
 #include <mutex>
 #include <list>
+#include <iostream>
+#include "unit2_mutex_lock.h"
 
 std::list<int> simpleList;
 std::mutex m;
@@ -43,5 +45,18 @@ void correct_mutex_use()
     catch (std::runtime_error& error)
     {
 
+    }
+}
+
+
+void naive_stack_race_condition(naive_thread_safe_stack<int> stack)
+{
+    if (!stack.empty())
+    {
+        int value = stack.top();
+        std::cout<<"Value is " << value << std::endl;
+        // If this function is called at a several threads, pop can generate an exception when 1 element left
+        // when top returns the same value. Or top can return other value, not than one we expected
+        stack.pop();
     }
 }

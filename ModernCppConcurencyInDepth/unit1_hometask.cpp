@@ -65,7 +65,7 @@ void cleaning_crew_run(std::queue<int> &commandsQueue, bool &done_flag)
     }
 }
 
-
+// TODO: cleaning_crew and engine_crew has a lot of same code. Get rid of this code.
 void task3_run()
 {
     std::cout << "Hello, Captain!" << std::endl;
