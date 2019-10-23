@@ -60,3 +60,4 @@ void naive_stack_race_condition(naive_thread_safe_stack<int> stack)
         stack.pop();
     }
 }
+

@@ -1,0 +1,12 @@
+//
+// Created by qazzer on 24/10/2019.
+//
+
+#ifndef MODERNCPPCONCURENCY_UNIT2_DEADLOCK_H
+#define MODERNCPPCONCURENCY_UNIT2_DEADLOCK_H
+
+
+void run_code_deadlock();
+
+
+#endif //MODERNCPPCONCURENCY_UNIT2_DEADLOCK_H
