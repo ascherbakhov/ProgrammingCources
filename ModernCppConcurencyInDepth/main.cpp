@@ -1,6 +1,7 @@
 #include "unit1_hometask.h"
 #include "unit2_mutex_lock.h"
 #include "unit2_deadlock_uniquelock.h"
+#include "unit3_futures_conditionals.h"
 
 
 int main()
@@ -9,5 +10,6 @@ int main()
     //    wrong_mutex_use();
     //    correct_mutex_use();
     //    run_code_deadlock();
-    run_uniquelock_code();
+    //    run_uniquelock_code();
+    run_code();
 }
