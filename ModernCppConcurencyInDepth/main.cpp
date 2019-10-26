@@ -2,7 +2,7 @@
 #include "unit2_mutex_lock.h"
 #include "unit2_deadlock_uniquelock.h"
 #include "unit3_futures_conditionals.h"
-
+#include "unit3_thread_safe_queue.h"
 
 int main()
 {
