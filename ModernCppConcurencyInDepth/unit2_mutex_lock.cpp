@@ -16,7 +16,7 @@ void pushToList(int x)
     throw std::runtime_error("Example");
 }
 
-void wrong_mutex_use()
+void unit2_naive_mutex_use()
 {
     m.lock();
     try
@@ -35,7 +35,7 @@ void wrong_mutex_use()
 
 }
 
-void correct_mutex_use()
+void unit2_correct_mutex_use()
 {
     std::lock_guard<std::mutex> l(m); // Mutex will be unlocked at lock_guard destructor
     try

@@ -7,11 +7,12 @@
 
 int main()
 {
-    //    task3_run();
-    //    wrong_mutex_use();
-    //    correct_mutex_use();
-    //    run_code_deadlock();
-    //    run_uniquelock_code();
-    //    run_code();
-    run_futures_code_example();
+    //    unit1_task3_run();
+    //    unit2_naive_mutex_use();
+    //    unit2_correct_mutex_use();
+    //    unit2_run_code_deadlock();
+    //    unit2_run_uniquelock_code();
+    //    unit3_run_code_conditionals();
+    //    unit3_run_futures_code_example();
+    unit3_run_async_code();
 }

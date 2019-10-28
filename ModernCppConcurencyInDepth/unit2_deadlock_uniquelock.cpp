@@ -24,7 +24,7 @@ void deadlock_f2()
     std::lock_guard<std::mutex>l2(m1);
 }
 
-void run_code_deadlock()
+void unit2_run_code_deadlock()
 {
     std::thread thread1(deadlock_f1);
     std::thread thread2(deadlock_f2);
@@ -64,7 +64,7 @@ void run_several_mutex_lock()
     //also std::scoped_lock, that is similar to std::thread_guard and std::lock together, also recursive_locks
 }
 
-void run_uniquelock_code()
+void unit2_run_uniquelock_code()
 {
     //transferring ownership of mutex from one scope into another
     // calling of 1 and 2 function is under protection of same mutex

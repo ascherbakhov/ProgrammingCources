@@ -36,7 +36,7 @@ void ask_driver_to_wake_up()
     std::cout<< "Finally im here" << std::endl;
 }
 
-void run_code()
+void unit3_run_code_conditionals()
 {
     std::thread driving_thread(keep_moving);
     std::thread passengers_thead(ask_driver_to_wake_up);

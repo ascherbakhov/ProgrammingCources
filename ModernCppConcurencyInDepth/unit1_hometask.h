@@ -10,6 +10,6 @@
 void cleaning_crew_run(std::queue<int> &commandsQueue, bool &done_flag);
 void engine_crew_run(std::queue<int> &commandsQueue, bool &done_flag);
 
-void task3_run();
+void unit1_task3_run();
 
 #endif //MODERNCPPCONCURENCYINDEPTH_TASK3_H

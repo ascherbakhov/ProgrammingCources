@@ -9,8 +9,8 @@
 #include <mutex>
 #include <memory>
 
-void wrong_mutex_use();
-void correct_mutex_use();
+void unit2_naive_mutex_use();
+void unit2_correct_mutex_use();
 
 
 template<class T>

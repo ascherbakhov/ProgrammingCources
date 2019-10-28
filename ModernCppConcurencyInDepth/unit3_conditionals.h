@@ -10,6 +10,6 @@
 #include <iostream>
 #include <condition_variable>
 
-void run_code();
+void unit3_run_code_conditionals();
 
 #endif //MODERNCPPCONCURENCY_UNIT3_CONDITIONALS_H

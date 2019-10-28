@@ -6,8 +6,8 @@
 #define MODERNCPPCONCURENCY_UNIT2_DEADLOCK_UNIQUELOCK_H
 
 
-void run_code_deadlock();
-void run_uniquelock_code();
+void unit2_run_code_deadlock();
+void unit2_run_uniquelock_code();
 
 
 #endif //MODERNCPPCONCURENCY_UNIT2_DEADLOCK_UNIQUELOCK_H
