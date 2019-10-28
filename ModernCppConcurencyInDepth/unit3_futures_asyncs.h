@@ -1,0 +1,12 @@
+//
+// Created by qazzer on 28/10/2019.
+//
+
+#ifndef MODERNCPPCONCURENCY_UNIT3_FUTURES_ASYNCS_H
+#define MODERNCPPCONCURENCY_UNIT3_FUTURES_ASYNCS_H
+
+
+void run_futures_code_example();
+
+
+#endif //MODERNCPPCONCURENCY_UNIT3_FUTURES_ASYNCS_H
