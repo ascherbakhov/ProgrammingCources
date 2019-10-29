@@ -19,5 +19,7 @@ int main()
     //    unit3_run_async_code();
     //    unit3_parallel_accumulate();
     //    unit3_run_package_task();
-    unit3_run_promise_code();
+    //    unit3_run_promise_code();
+    //    unit3_run_promise_exception();
+    unit3_shared_future();
 }
