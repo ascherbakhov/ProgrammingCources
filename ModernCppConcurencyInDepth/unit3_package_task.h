@@ -1,0 +1,10 @@
+//
+// Created by qazzer on 29/10/2019.
+//
+
+#ifndef MODERNCPPCONCURENCY_UNIT3_PACKAGE_TASK_H
+#define MODERNCPPCONCURENCY_UNIT3_PACKAGE_TASK_H
+
+void unit3_run_package_task();
+
+#endif //MODERNCPPCONCURENCY_UNIT3_PACKAGE_TASK_H
