@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <future>
+#include <vector>
+#include <numeric>
 #include "unit3_futures_asyncs.h"
 
 
@@ -61,4 +63,29 @@ void unit3_run_async_code()
     std::cout<<"Value recived from f2 future is  " << f2.get() << std::endl;
     std::cout<<"Value recived from f3 future is  " << f3.get() << std::endl;
 
+}
+
+int MIN_ELEMENT_COUNT = 1000;
+
+template <class iterator>
+int parallel_accumulate(iterator begin, iterator end)
+{
+    long length = std::distance(begin, end);
+
+    if (length < MIN_ELEMENT_COUNT)
+    {
+        return std::accumulate(begin, end, 0);
+    }
+    std::cout << "Length " << length << std::endl;
+    iterator mid = begin;
+    std::advance(mid, (length + 1) / 2);
+    std::future<int> fut = std::async(std::launch::async | std::launch::deferred, parallel_accumulate<iterator>, mid, end);
+    auto sum = parallel_accumulate(begin, mid);
+    return sum + fut.get();
+}
+
+void unit3_parallel_accumulate()
+{
+    std::vector<int> v(10000, 1);
+    std::cout<< "Sum is "<< parallel_accumulate(v.begin(), v.end()) << std::endl;
 }

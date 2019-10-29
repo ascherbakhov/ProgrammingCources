@@ -8,6 +8,7 @@
 
 void unit3_run_futures_code_example();
 void unit3_run_async_code();
+void unit3_parallel_accumulate();
 
 
 #endif //MODERNCPPCONCURENCY_UNIT3_FUTURES_ASYNCS_H

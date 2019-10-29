@@ -14,5 +14,6 @@ int main()
     //    unit2_run_uniquelock_code();
     //    unit3_run_code_conditionals();
     //    unit3_run_futures_code_example();
-    unit3_run_async_code();
+    //    unit3_run_async_code();
+    unit3_parallel_accumulate();
 }
