@@ -6,6 +6,7 @@
 #include "unit3_futures_asyncs.h"
 #include "unit3_package_task.h"
 #include "unit3_promises_shared_futures.h"
+#include "unit4_thread_safe_queue.h"
 
 int main()
 {
@@ -21,5 +22,6 @@ int main()
     //    unit3_run_package_task();
     //    unit3_run_promise_code();
     //    unit3_run_promise_exception();
-    unit3_shared_future();
+    //    unit3_shared_future();
+    unit4_test_queue();
 }
