@@ -7,6 +7,7 @@
 #include "unit3_package_task.h"
 #include "unit3_promises_shared_futures.h"
 #include "unit4_thread_safe_queue.h"
+#include "unit4_parallel_quicksort.h"
 
 int main()
 {
@@ -23,5 +24,7 @@ int main()
     //    unit3_run_promise_code();
     //    unit3_run_promise_exception();
     //    unit3_shared_future();
-    unit4_test_queue();
+    //    unit4_test_queue();
+    unit4_sort_example();
+
 }
