@@ -8,7 +8,7 @@
 #include "unit3_promises_shared_futures.h"
 #include "unit4_thread_safe_queue.h"
 #include "unit4_parallel_quicksort.h"
-
+#include "unit5_atomic_flag_bool.h"
 int main()
 {
     //    unit1_task3_run();
@@ -25,6 +25,8 @@ int main()
     //    unit3_run_promise_exception();
     //    unit3_shared_future();
     //    unit4_test_queue();
-    unit4_sort_example();
+    //    unit4_sort_example();
+    //    unit5_atomic_flag();
+    unit5_atomic_bool();
 
 }
