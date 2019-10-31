@@ -7,6 +7,7 @@
 
 #include <list>
 #include <algorithm>
+#include <future>
 
 template <class T>
 std::list<T> unit4_parallel_quicksort(std::list<T> input)
@@ -34,10 +35,12 @@ std::list<T> unit4_parallel_quicksort(std::list<T> input)
     lower_list.splice(lower_list.end(), input, input.begin(), divide_point);
 
     auto new_lower(unit4_parallel_quicksort(std::move(lower_list)));
-    auto new_upper(unit4_parallel_quicksort(std::move(input)));
+
+    std::future<std::list<T>> new_upper_future =
+            std::async(std::launch::async | std::launch::deferred, &unit4_parallel_quicksort<T>, std::move(input));
 
     result.splice(result.begin(), new_lower);
-    result.splice(result.end(), new_upper);
+    result.splice(result.end(), new_upper_future.get());
 
     return result;
 }
