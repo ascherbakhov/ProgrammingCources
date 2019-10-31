@@ -27,9 +27,10 @@ void consumer()
     while (i > 0)
     {
         auto res = queue.wait_pop();
+        if (res != nullptr)
         {
             std::lock_guard<std::mutex> lg(print_mutex);
-            std::cout << "Result is " << res.get() << std::endl;
+            std::cout << "Result is " << *res.get() << std::endl;
 
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(400));
