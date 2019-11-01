@@ -67,7 +67,12 @@ void unit5_compare_exchange()
     int expected_value = 20;
     std::cout << "Previous expected value " << expected_value << std::endl;
     // change atomic value to the second argument if current value is equal to expected value
-    // retures 1 on success, 0 on fail
+    // returns 1 on success, 0 on fail. It is atomic operation
+    // weak doesn't guarantee successfullness even if atomic is equal to expected value
+    // on a machines without such instructions
+    // used fo spinlock(locks) realization. Also look at ABA probmlem
+    //  can be used to implement a more sophisticated spin lock that stores the thread identifier in the lock
+    // also for optimistic transactional data structures
     bool return_val = number.compare_exchange_weak(expected_value, 6);
 
     std::cout << "Operation successful " << (return_val ? "yes" : "no") << std::endl;
