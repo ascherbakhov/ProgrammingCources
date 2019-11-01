@@ -10,4 +10,6 @@ void unit5_atomic_flag();
 
 void unit5_atomic_bool();
 
+void unit5_compare_exchange();
+
 #endif //MODERNCPPCONCURENCY_UNIT5_ATOMIC_FLAG_BOOL_H

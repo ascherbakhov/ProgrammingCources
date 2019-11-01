@@ -58,3 +58,20 @@ void unit5_atomic_bool()
 
 
 }
+
+
+void unit5_compare_exchange()
+{
+    std::atomic<int> number(20);
+
+    int expected_value = 20;
+    std::cout << "Previous expected value " << expected_value << std::endl;
+    // change atomic value to the second argument if current value is equal to expected value
+    // retures 1 on success, 0 on fail
+    bool return_val = number.compare_exchange_weak(expected_value, 6);
+
+    std::cout << "Operation successful " << (return_val ? "yes" : "no") << std::endl;
+    std::cout << "current expected value" << expected_value << std::endl;
+    std::cout << "current atomic number " << number.load() << std::endl;
+
+}

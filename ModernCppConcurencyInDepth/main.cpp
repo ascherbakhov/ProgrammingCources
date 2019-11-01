@@ -27,6 +27,7 @@ int main()
     //    unit4_test_queue();
     //    unit4_sort_example();
     //    unit5_atomic_flag();
-    unit5_atomic_bool();
+//    unit5_atomic_bool();
+    unit5_compare_exchange();
 
 }
