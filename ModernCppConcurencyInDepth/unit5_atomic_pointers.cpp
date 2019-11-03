@@ -22,4 +22,13 @@ void unit5_atomic_pointer()
     bool retval = x_pointer.compare_exchange_weak(y_pointer, values + 10);
     std::cout << "Store operation successfull: " << (retval ? "yes" : "no") << std::endl;
     std::cout << "New value ponter: " << *x_pointer << std::endl;
+
+    int* prev = x_pointer.fetch_sub(4);
+    std::cout << "fetch_sub - X_pointer: " << *x_pointer << " Prev: "<< *prev << std::endl;
+    prev = x_pointer.fetch_add(4);
+    std::cout << "fetch_add - X_pointer: " << *x_pointer << " Prev: "<< *prev << std::endl;
+    x_pointer++;
+    std::cout << "++ - X_pointer: " << *x_pointer << std::endl;
+    x_pointer--;
+    std::cout << "-- - X_pointer: " << *x_pointer  << std::endl;
 }
