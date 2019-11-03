@@ -9,7 +9,7 @@
 #include "unit4_thread_safe_queue.h"
 #include "unit4_parallel_quicksort.h"
 #include "unit5_atomic_flag_bool.h"
-#include "unit5_atomic_pointers.h"
+#include "unit5_atomic_pointers_custom.h"
 
 int main()
 {
@@ -31,6 +31,7 @@ int main()
     //    unit5_atomic_flag();
     //    unit5_atomic_bool();
     //    unit5_compare_exchange();
+    //    unit5_atomic_custom
     unit5_atomic_pointer();
 
 }

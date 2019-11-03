@@ -2,7 +2,7 @@
 // Created by qazzer on 04/11/2019.
 //
 
-#include "unit5_atomic_pointers.h"
+#include "unit5_atomic_pointers_custom.h"
 
 void unit5_atomic_pointer()
 {
@@ -31,4 +31,11 @@ void unit5_atomic_pointer()
     std::cout << "++ - X_pointer: " << *x_pointer << std::endl;
     x_pointer--;
     std::cout << "-- - X_pointer: " << *x_pointer  << std::endl;
+}
+
+
+void unit5_atomic_custom()
+{
+    IntPair pair1(1, 2);
+    AtomicIntPair atomic_pair(pair1);
 }
