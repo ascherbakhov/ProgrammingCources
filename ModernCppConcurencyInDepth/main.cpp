@@ -10,6 +10,7 @@
 #include "unit4_parallel_quicksort.h"
 #include "unit5_atomic_flag_bool.h"
 #include "unit5_atomic_pointers_custom.h"
+#include "unit5_memory_ordering.h"
 
 int main()
 {
@@ -32,6 +33,7 @@ int main()
     //    unit5_atomic_bool();
     //    unit5_compare_exchange();
     //    unit5_atomic_custom
-    unit5_atomic_pointer();
+    //    unit5_atomic_pointer();
+    unit5_important_relationships();
 
 }
