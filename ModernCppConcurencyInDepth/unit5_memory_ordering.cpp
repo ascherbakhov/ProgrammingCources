@@ -7,7 +7,7 @@
 #include <iostream>
 #include <thread>
 #include <vector>
-#include <assert.h>
+#include <cassert>
 #include "unit5_memory_ordering.h"
 
 std::atomic<bool> ready_flag;
@@ -95,7 +95,8 @@ void read_y_then_x()
 
 void unit5_memory_order_seq_cst()
 {
-    // Memory order is about core cashes, I suppose.
+    // Memory order is about core cashes,  and
+    // instructions order optimization, I suppose.
     // If threads get on different cores, then due to
     // cache update policy it can store different values
     // at a time for one variable. Memory_order_seq_cst

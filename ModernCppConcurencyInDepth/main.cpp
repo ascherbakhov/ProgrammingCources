@@ -34,6 +34,8 @@ int main()
     //    unit5_compare_exchange();
     //    unit5_atomic_custom
     //    unit5_atomic_pointer();
-    unit5_important_relationships();
+    //    unit5_important_relationships();
+    //    unit5_memory_order_seq_cst();
+    unit5_memory_order_relaxed();
 
 }

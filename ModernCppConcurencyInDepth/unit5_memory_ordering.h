@@ -7,5 +7,6 @@
 
 
 void unit5_important_relationships();
+void unit5_memory_order_seq_cst();
 
 #endif //MODERNCPPCONCURENCY_UNIT5_MEMORY_ORDERING_H
