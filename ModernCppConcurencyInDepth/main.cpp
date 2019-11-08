@@ -11,6 +11,8 @@
 #include "unit5_atomic_flag_bool.h"
 #include "unit5_atomic_pointers_custom.h"
 #include "unit5_memory_ordering.h"
+#include "unit5_memory_order_relaxed.h"
+#include "unit5_memory_order_acquire_release.h"
 
 int main()
 {
@@ -36,6 +38,8 @@ int main()
     //    unit5_atomic_pointer();
     //    unit5_important_relationships();
     //    unit5_memory_order_seq_cst();
-    unit5_memory_order_relaxed();
+    //    unit5_memory_order_relaxed();
+    //    unit5_memory_order_acquire_release_negative();
+    unit5_memory_order_acquire_release();
 
 }

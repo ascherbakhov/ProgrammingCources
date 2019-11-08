@@ -16,7 +16,7 @@ std::atomic<int> mor_z;
  * doesn't guarantee ordering of mor_y store
  * for other thread
  */
-void read_x_then_y()
+void morelaxed_read_x_then_y()
 {
     while(!mor_x.load(std::memory_order_relaxed));
 
@@ -26,7 +26,7 @@ void read_x_then_y()
     }
 }
 
-void write_y_then_x()
+void morelaxed_write_y_then_x()
 {
     mor_y.store(true, std::memory_order_relaxed);
     mor_x.store(true, std::memory_order_relaxed);
@@ -34,8 +34,8 @@ void write_y_then_x()
 
 void unit5_memory_order_relaxed()
 {
-    std::thread thread1(write_y_then_x);
-    std::thread thread2(read_x_then_y);
+    std::thread thread1(morelaxed_write_y_then_x);
+    std::thread thread2(morelaxed_read_x_then_y);
 
     thread1.join();
     thread1.join();
