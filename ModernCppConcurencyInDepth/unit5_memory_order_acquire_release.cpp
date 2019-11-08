@@ -53,7 +53,7 @@ void unit5_memory_order_acquire_release()
 std::atomic<bool> moar_a, moar_b;
 std::atomic<int>moar_c;
 
-/* Though all memory orders in this threads is acquire-release
+/* Though all memory orders in this threads are acquire-release
  * assert still can fire. It is because of the fact, that
  * moar_a and moar_b is synchronized only with particular thread.
  * Acquire-release do the visibility for all the shared states

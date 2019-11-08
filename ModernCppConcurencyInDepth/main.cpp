@@ -1,18 +1,5 @@
-#include "unit1_hometask.h"
-#include "unit2_mutex_lock.h"
-#include "unit2_deadlock_uniquelock.h"
-#include "unit3_conditionals.h"
-#include "unit3_thread_safe_queue.h"
-#include "unit3_futures_asyncs.h"
-#include "unit3_package_task.h"
-#include "unit3_promises_shared_futures.h"
-#include "unit4_thread_safe_queue.h"
-#include "unit4_parallel_quicksort.h"
-#include "unit5_atomic_flag_bool.h"
-#include "unit5_atomic_pointers_custom.h"
-#include "unit5_memory_ordering.h"
-#include "unit5_memory_order_relaxed.h"
 #include "unit5_memory_order_acquire_release.h"
+#include "unit5_memory_order_consume.h"
 
 int main()
 {
@@ -40,6 +27,7 @@ int main()
     //    unit5_memory_order_seq_cst();
     //    unit5_memory_order_relaxed();
     //    unit5_memory_order_acquire_release_negative();
-    unit5_memory_order_acquire_release();
+   //     unit5_memory_order_acquire_release();
+    unit5_memory_order_consume();
 
 }
