@@ -1,5 +1,4 @@
-#include "unit5_memory_order_acquire_release.h"
-#include "unit5_memory_order_consume.h"
+#include "unit5_release_sequence.h"
 
 int main()
 {
@@ -28,6 +27,7 @@ int main()
     //    unit5_memory_order_relaxed();
     //    unit5_memory_order_acquire_release_negative();
    //     unit5_memory_order_acquire_release();
-    unit5_memory_order_consume();
+    //    unit5_memory_order_consume();
+    unit5_release_sequence();
 
 }
