@@ -52,13 +52,21 @@ void reader_thread()
     }
 }
 
+void final_read_thread()
+{
+    std::this_thread::sleep_for(std::chrono::milliseconds(3 * 1000));
+    count.load(std::memory_order_acquire);
+}
+
 void unit5_release_sequence()
 {
     std::thread thread1(writer_thread);
     std::thread thread2(reader_thread);
     std::thread thread3(reader_thread);
+    std::thread thread4(final_read_thread);
 
     thread1.join();
     thread2.join();
     thread3.join();
+    thread4.join();
 }
