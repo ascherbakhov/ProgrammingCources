@@ -19,6 +19,8 @@ class unit6_lockfree_stack
         explicit node(T const & value): value(std::make_shared<T>(value)){};
     };
     std::atomic<node*> head;
+    std::atomic<int> threads_in_pop;
+    std::atomic<node*> to_be_deleted;
 public:
     void push(T const & value)
     {
@@ -30,13 +32,66 @@ public:
          */
         while(!head.compare_exchange_weak(new_node->next, new_node));
     };
+
+    void delete_nodes(node* nodes)
+    {
+        while (nodes)
+        {
+            node* next = nodes->next;
+            delete nodes;
+            nodes = next;
+        }
+    }
+
+    void try_reclaim(node* old_head)
+    {
+        if (threads_in_pop == 1)
+        {
+            delete old_head;
+
+            //Other thread cannot access to claimed_list, so it's safely to call deleted_nodes
+            node* claimed_list = to_be_deleted.exchange(nullptr);
+
+            //Double check is needed
+            if (!--threads_in_pop)
+            {
+                delete_nodes(claimed_list);
+            }
+            else if (claimed_list)
+            {
+                node* last = claimed_list;
+                while(node* const next = last->next)
+                {
+                    last = next;
+                }
+
+                last->next = to_be_deleted;
+                while(!to_be_deleted.compare_exchange_weak(last->next, claimed_list));
+                last->next = to_be_deleted;
+            }
+        }
+        else
+        {
+            old_head->next = to_be_deleted;
+            while(!to_be_deleted.compare_exchange_weak(old_head->next, old_head));
+            --threads_in_pop;
+        }
+    }
+
     std::shared_ptr<T> pop()
     {
+        ++threads_in_pop;
         node* old_head = head.load();
         //Infinite cycle waiting for new value
         while (old_head && !head.compare_exchange_weak(old_head, old_head->next));
-        return old_head ? old_head->value : std::shared_ptr<T>();
-        //delete old_head; // Deal with memory leak later
+
+        std::shared_ptr<T> res;
+        if (old_head)
+            res.swap(old_head->value);
+
+        try_reclaim(old_head);
+
+        return res;
     };
 };
 
