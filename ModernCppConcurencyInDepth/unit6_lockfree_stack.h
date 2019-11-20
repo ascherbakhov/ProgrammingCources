@@ -35,6 +35,7 @@ public:
 
     void delete_nodes(node* nodes)
     {
+        //Other thread cannot access to node, so it's safely delete them
         while (nodes)
         {
             node* next = nodes->next;
@@ -49,22 +50,24 @@ public:
         {
             delete old_head;
 
-            //Other thread cannot access to claimed_list, so it's safely to call deleted_nodes
             node* claimed_list = to_be_deleted.exchange(nullptr);
 
-            //Double check is needed
+            //Double check is needed, because if we don't check it here, it can delete nodes from to_be_deleted
+            // though for other thread old_head can be in to_be_deleted list, and in else operator it fails(ABC ex).
             if (!--threads_in_pop)
             {
                 delete_nodes(claimed_list);
             }
             else if (claimed_list)
             {
+                //Just look for last node
                 node* last = claimed_list;
                 while(node* const next = last->next)
                 {
                     last = next;
                 }
 
+                //Unite claimed with to_be_deleted
                 last->next = to_be_deleted;
                 while(!to_be_deleted.compare_exchange_weak(last->next, claimed_list));
                 last->next = to_be_deleted;
