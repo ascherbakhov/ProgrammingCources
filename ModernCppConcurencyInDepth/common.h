@@ -6,6 +6,7 @@
 #define MODERNCPPCONCURENCYINDEPTH_THREAD_GUARD_H
 
 #include <thread>
+#include <vector>
 
 class thread_guard {
     std::thread &t;
@@ -20,6 +21,25 @@ public:
         if (t.joinable())
         {
             t.join();
+        }
+    }
+
+};
+
+class join_threads {
+    std::vector<std::thread>& threads;
+
+public:
+    explicit join_threads(std::vector<std::thread> & _threads) :
+            threads(_threads)
+    {}
+
+    ~join_threads()
+    {
+        for (long i = 0; i < threads.size(); i++)
+        {
+            if (threads[i].joinable())
+                threads[i].join();
         }
     }
 
